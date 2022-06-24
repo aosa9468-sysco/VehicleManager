@@ -1,0 +1,71 @@
+/* spec area */
+.specs {
+  width: 100%;
+  margin: 0;
+  padding: 0 32px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.specs > li {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+}
+.specs > li:first-child {
+  padding-left: 0;
+}
+.specs > li:last-child {
+  padding-right: 0;
+}
+.specs > li > span.specs-value {
+  font-size: 1.5rem;
+}
+.specs > li > span.specs_label {
+  font-size: 1rem;
+  padding-top: 8px;
+}
+@media(min-width: 576px) {
+  .specs > li {
+    padding: 0 32px;
+  }
+  .specs > li > span.specs-value {
+    font-size: 2.5rem;
+  }
+}
+/* spec area */
+.vr {
+  border-left: 1px solid #1f1f1f;
+  height: 2.2rem;
+}
+/* number plate */
+.swdishPlate{
+  text-decoration: none;
+  color: antiquewhite;
+  background-color: #008ca5;
+  cursor: none;
+  pointer-events: none;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+}
+.badge-primary{
+  background-color: #008ca5;
+  font-size: medium;
+  font-weight: normal;
+  text-align: end;
+}
+.badge-success{
+  background-color: #54a300;
+  font-size: medium;
+  font-weight: normal;
+  text-align: end;
+}
+.gapaAdjust{
+  border-left: 1px solid #1f1f1f;
+  height: 2.2rem;
+}
+.rowSpace{
+  padding-top: 6rem;
+}

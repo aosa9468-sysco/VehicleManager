@@ -1,0 +1,168 @@
+[
+  {
+    "id": "v1",
+    "name": "AB23",
+    "driver": "SpongeBob SquarePants",
+    "status": "active",
+    "fuelType": "LNG",
+    "equipments": [1,2],
+    "model": "Volvo FH",
+    "licensePlate":"XJY959",
+    "image": "../../fixtures/vehicles/v1.png"
+  },
+
+  {
+    "id": "v2",
+    "name": "XXW123",
+    "driver": "Patrick Steave",
+    "status": "active",
+    "fuelType": "Diesel",
+    "equipments": [2],
+    "model": "Volvo FH16",
+    "licensePlate":"KST810",
+    "image": "../../fixtures/vehicles/v2.png"
+  },
+  {
+    "id": "v3",
+    "name": "GA33",
+    "driver": "Squidward Tentacles",
+    "status": "active",
+    "fuelType": "CNG",
+    "equipments": [4],
+    "model": "Volvo V60",
+    "licensePlate":"MSV255",
+    "image": "../../fixtures/vehicles/v3.png"
+  },
+  {
+    "id": "v4",
+    "name": "LK21",
+    "driver": "Krabs Kingz",
+    "status": "inactive",
+    "fuelType": "Diesel",
+    "equipments": [],
+    "model": "Volvo XC90 D5",
+    "licensePlate":"ASD959",
+    "image": "../../fixtures/vehicles/v4.png"
+  },
+  {
+    "id": "v5",
+    "name": "GHB 5",
+    "driver": "Plankton Karen",
+    "status": "active",
+    "fuelType": "Diesel",
+    "equipments": [1,4],
+    "model": "Volvo XC40 D4",
+    "licensePlate":"ZZZ515",
+    "image": "../../fixtures/vehicles/v5.png"
+  },
+  {
+    "id": "v6",
+    "name": "LLO21",
+    "driver": "Sandy Cheeks",
+    "status": "active",
+    "fuelType": "Diesel",
+    "equipments": [3],
+    "model": "Volvo s40 D5",
+    "licensePlate":"POR650",
+    "image": "../../fixtures/vehicles/v6.png"
+  },
+  {
+    "id": "v7",
+    "name": "OWL21",
+    "driver": "Smith Puff",
+    "status": "active",
+    "fuelType": "Electrical",
+    "equipments": [],
+    "model": "Volvo FL",
+    "licensePlate":"LBP987",
+    "image": "../../fixtures/vehicles/v7.png"
+  },
+  {
+    "id": "v8",
+    "name": "JNWJ12",
+    "driver": "Pearl Krabs",
+    "status": "active",
+    "fuelType": "Eletrical",
+    "equipments": [3],
+    "model": "Volvo FE",
+    "licensePlate":"URU864",
+    "image": "../../fixtures/vehicles/v8.png"
+  },
+  {
+    "id": "v9",
+    "name": "KL2OK1",
+    "driver": "Gary Jobs",
+    "status": "active",
+    "fuelType": "LNG",
+    "equipments": [],
+    "model": "Volvo XC60 D4",
+    "licensePlate":"YTQ878",
+    "image": "../../fixtures/vehicles/v9.png"
+  },
+  {
+    "id": "v10",
+    "name": "LSAO21",
+    "driver": "Patchy Pirate",
+    "status": "active",
+    "fuelType": "LNG",
+    "equipments": [2],
+    "model": "Volvo V60",
+    "licensePlate":"WXW666",
+    "image": "../../fixtures/vehicles/v10.png"
+  },
+  {
+    "id": "v11",
+    "name": "LSP21P",
+    "driver": "Potty Peter",
+    "status": "inactive",
+    "fuelType": "Diesel",
+    "equipments": [4],
+    "model": "Volvo FMX",
+    "licensePlate":"LMK553",
+    "image": "../../fixtures/vehicles/v11.png"
+  },
+  {
+    "id": "v12",
+    "name": "212AWN",
+    "driver": "Fabrice Faye",
+    "status": "active",
+    "fuelType": "Diesel",
+    "equipments": [],
+    "model": "Volvo VNL",
+    "licensePlate":"FHG423",
+    "image": "../../fixtures/vehicles/v12.png"
+  },
+  {
+    "id": "v13",
+    "name": "1W321W",
+    "driver": "Mermaid Barnacle",
+    "status": "active",
+    "fuelType": "Diesel",
+    "equipments": [2],
+    "model": "Volvo VHD",
+    "licensePlate":"JKL789",
+    "image": "../../fixtures/vehicles/v13.png"
+  },
+  {
+    "id": "v14",
+    "name": "14HUEO",
+    "driver": "Dominic Soyza",
+    "status": "active",
+    "fuelType": "Diesel",
+    "equipments": [2],
+    "model": "Volvo VAH",
+    "licensePlate":"TRF252",
+    "image": "../../fixtures/vehicles/v14.png"
+  },
+  {
+    "id": "v15",
+    "name": "15HERO",
+    "driver": "Kingz Daker",
+    "status": "active",
+    "fuelType": "Diesel",
+    "equipments": [1,2,3,4],
+    "model": "Volvo XC90 D5",
+    "licensePlate":"NBG999",
+    "image": "../../fixtures/vehicles/v15.png"
+  }
+]

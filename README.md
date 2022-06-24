@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Objective
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this react project I have used React, typescript, CSS, bootstrap and json server to build fleet application to view stored vehicle info and update vehicle information. It includes CRUD functionality.
 
-## Available Scripts
+# Importing Packages
+To build the UI of this project I have used bootstrap, react library, CSS and font awesome libraries.
 
-In the project directory, you can run:
+# Instruction to run project
+Please follow below steps in order to run fleet project successfully
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Install json server on your computer: `npm install -g json-server`
+2. Install the dependencies on your computer: `npm install`
+3. Run Json server: `npm run server`
+4. Run the project: `yarn start` (In new terminal)
+5. Open `http://localhost:3000` to view your React application in the browser
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+# List of Assumptions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Fleet owner has only VOLVO vehicles. No Mercedes, BMWs etc.
+2. He’s using app only for himself and in this stage didn’t use login credentials for his app.
+3. Upgraded and modified vehicles.json file as insufficient data for vehicles.
+4. Assumed unique identification goes with vehicle Registered License Plate.
+5. Assumed fleet owner can easily identify his vehicle by a photo, therefore included real picture of relevant vehicle.
+6. Assuming fleet owner has less than 20 vehicles for now.
 
-### `npm run build`
+# Next paid version of app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Fleet owner will be able to add his own vehicles into app with a photo by him/her self.
+2. Modification to UI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
