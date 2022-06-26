@@ -1,6 +1,5 @@
-import { getEquipments } from "../../services/equipments.service";
-import "./Card.css";
-import { CardProps } from "./card.interface";
+import { CardProps } from "./Card.Interface"
+import "./Card.Styles.css";
 
 function Card (props: CardProps) {
 
@@ -37,14 +36,6 @@ function Card (props: CardProps) {
                         Fuel Type
                         <span className="badge badge-primary badge p-2">{props.fuelType}</span>
                     </li>
-                    {/* {props.equipments.length > 0 ? (
-                        props.equipments.map((eq,index)=>(
-                            <li className="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                        Equipments
-                        <span className="badge badge-success badge p-2">{props.findEq(eq)}</span>
-                    </li>
-                        ))
-                    ):(<span className="badge badge-success badge p-2"></span>)} */}
                     <li className="list-group-item d-flex justify-content-between align-items-center bg-transparent">
                         Equipments
                         <span className="badge badge-primary badge p-2">{props.equipments}</span>

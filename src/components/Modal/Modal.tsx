@@ -1,13 +1,8 @@
-import { indexOf } from "lodash";
-import { element } from "prop-types";
-import { ChangeEvent, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { getEquipments } from "../../services/equipments.service";
-import { findEquipmentName, getEquipmentId, getEquipmentName, getSelectedEqsName } from "../../util/util";
-import { ModalProps } from "./Modal.interface";
+import { findEquipmentName, getEquipmentId} from "../../util/util";
+import { ModalProps } from "./Modal.Interface";
 
 function ModalShow(props: ModalProps) {
-  //const [selectedEqs,setSelectedEqs] = useState(props.defaultChecked);
   let selectedEqs: any[] =  props.defaultChecked;
 
   const handleInputChange = (event: any) => {

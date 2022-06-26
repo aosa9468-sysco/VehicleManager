@@ -5,11 +5,10 @@ import {
   getVehicles,
   updateVehicle
 } from "../../services/vehicle.srvice";
-import Card from "../../components/Cards/card";
+import Card from "../../components/Card/Card";
 import { getEquipments } from "../../services/equipments.service";
 import Header from "../../components/Header/Header";
 import ModalShow from "../../components/Modal/Modal";
-import { find } from "lodash";
 import { getCardEquipmentsName, getEquipmentsNames, setEquipmentsValues } from "../../util/util";
 import Pagination from "../../components/Pagination/Pagination";
 
@@ -66,13 +65,11 @@ export const Dashboard = () => {
     let clonedVehicle = newVehicle;
     const id = newVehicle.id;
     newVehicle.equipments = selectedEquipments;
-    //setVehicles([...vehicles, { ...newVehicle,id }]);
     setVehicles(
       vehicles.map((vehicle) =>
         vehicle.id == newVehicle.id ? newVehicle : vehicle
       )
     );
-    //clonedVehicle.equipments = selectedEquipments;
     clonedVehicle.equipments = setEquipmentsValues(selectedEquipments,equipments);
     clonedVehicle.equipments = [...new Set(clonedVehicle.equipments)];
     updateVehicle(clonedVehicle.id, clonedVehicle);

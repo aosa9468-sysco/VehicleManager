@@ -1,5 +1,3 @@
-import { ChangeEventHandler, FormEventHandler, MouseEventHandler } from "react";
-import { FormControl } from "react-bootstrap";
 
 export interface ModalProps {
     defaultChecked: any;

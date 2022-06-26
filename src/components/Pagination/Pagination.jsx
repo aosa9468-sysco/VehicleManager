@@ -1,6 +1,3 @@
-import { divide } from 'lodash';
-import React from 'react';
-
 const Pagination = ({ vehiclesPerPage, totalVehicles, paginate }) => {
   const pageNumbers = [];
 
