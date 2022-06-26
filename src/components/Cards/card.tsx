@@ -47,11 +47,11 @@ function Card (props: CardProps) {
                     ):(<span className="badge badge-success badge p-2"></span>)} */}
                     <li className="list-group-item d-flex justify-content-between align-items-center bg-transparent">
                         Equipments
-                        <span className="badge badge-success badge p-2">{props.equipments}</span>
+                        <span className="badge badge-primary badge p-2">{props.equipments}</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center bg-transparent">
                         Status
-                        <span className="badge badge-success badge p-2">{props.status}</span>
+                        <span className="badge badge-primary badge p-2">{props.status}</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center bg-transparent">
                         <button type="button" className="btn btn-warning" onClick={props.update} >UPDATE</button>

@@ -2,6 +2,7 @@ import { ChangeEventHandler, FormEventHandler, MouseEventHandler } from "react";
 import { FormControl } from "react-bootstrap";
 
 export interface ModalProps {
+    defaultChecked: any;
     onChangeEquipments: any;
     onChangeFuelType: any;
     onChangeStatus: any;
@@ -13,7 +14,7 @@ export interface ModalProps {
     handleClose: any;
     show: boolean;
     status: string;
-    equipments: string;
+    equipments: Array<string>;
     fuelType: string;
     model: string;
     license: string;

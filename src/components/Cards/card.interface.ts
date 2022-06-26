@@ -5,7 +5,7 @@ export interface CardProps {
     delete: MouseEventHandler<HTMLButtonElement> | undefined;
     update: any;
     status: string;
-    equipments: Array<string>;
+    equipments: Array<number>;
     fuelType: string;
     model: string;
     driver: string;

@@ -6,7 +6,7 @@ export interface Vehicle {
     driver: string;
     status:  string;
     fuelType: string;
-    equipments: string;
+    equipments: Array<string>;
     model: string;
     image: undefined
 }

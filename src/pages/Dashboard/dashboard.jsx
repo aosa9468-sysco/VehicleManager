@@ -10,6 +10,7 @@ import { getEquipments } from "../../services/equipments.service";
 import Header from "../../components/Header/Header";
 import ModalShow from "../../components/Modal/Modal";
 import { find } from "lodash";
+import { getCardEquipmentsName, getEquipmentsNames, setEquipmentsValues } from "../../util/util";
 
 export const Dashboard = () => {
   const initVehicle = {
@@ -18,7 +19,7 @@ export const Dashboard = () => {
     driver: "",
     status: "",
     fuelType: "",
-    equipments: "",
+    equipments: [],
     model: "",
     licensePlate: "",
     image: "",
@@ -29,11 +30,12 @@ export const Dashboard = () => {
   const [show, setShow] = useState(false);
   const [newVehicle, setNewVehicle] = useState(initVehicle);
   const [editing, setEdit] = useState(false);
+  const [selectedEquipments, setSelectedEquipments] = useState([])
 
   useEffect(() => {
     loadVehicles();
     loadEquipments();
-  }, []);
+  }, [],[]);
 
   const loadVehicles = () =>
     getVehicles().then((vehicles) => setVehicles(vehicles.data));
@@ -41,8 +43,9 @@ export const Dashboard = () => {
   const loadEquipments = () =>
     getEquipments().then((equipments) => setEquipments(equipments.data));
 
-  const handleClose = () => {
+  const handleClose = (selectedEqs) => {
     setShow(false);
+    setSelectedEquipments(selectedEqs)
   };
 
   const handleShow = () => {
@@ -50,18 +53,23 @@ export const Dashboard = () => {
   };
 
   const onFormSubmit = (newVehicle) => {
+    let clonedVehicle = newVehicle;
     const id = newVehicle.id;
+    newVehicle.equipments = selectedEquipments;
     //setVehicles([...vehicles, { ...newVehicle,id }]);
     setVehicles(
       vehicles.map((vehicle) =>
         vehicle.id == newVehicle.id ? newVehicle : vehicle
       )
     );
-    updateVehicle(newVehicle.id, newVehicle);
+    //clonedVehicle.equipments = selectedEquipments;
+    clonedVehicle.equipments = setEquipmentsValues(selectedEquipments,equipments);
+    clonedVehicle.equipments = [...new Set(clonedVehicle.equipments)];
+    updateVehicle(clonedVehicle.id, clonedVehicle);
   };
 
   const onEdit = (newVehicle) => {
-    setNewVehicle({ ...newVehicle, newVehicle });
+    setNewVehicle(newVehicle);
     handleShow();
   };
 
@@ -87,22 +95,9 @@ export const Dashboard = () => {
     deleteVehicle(currentVehicle.id);
   };
 
-  const findEquipment = (eq) => {
-    if (typeof eq == "string") {
-      eq = eq.split(`,`).map((x) => Number(x));
-    }
-    let temp = "";
-    eq.map((id) => {
-      console.log(find(equipments, { id:Number(id) }));
-      temp = temp + find(equipments, { id:Number(id) }).name + ",";
-    });
-    return temp;
-  };
-
   return (
     <div className="container-fluid bg-holder">
       <Header />
-
       {vehicles.length > 0 ? (
         vehicles.map((vehicle, index) => (
           <Card
@@ -111,7 +106,7 @@ export const Dashboard = () => {
             license={vehicle.licensePlate}
             vehicleName={vehicle.name}
             status={vehicle.status}
-            equipments={findEquipment(vehicle.equipments)}
+            equipments={vehicle.equipments.length> 0? getCardEquipmentsName(vehicle.equipments,equipments).join(","):[]}
             fuelType={vehicle.fuelType}
             model={vehicle.model}
             driver={vehicle.driver}
@@ -128,7 +123,7 @@ export const Dashboard = () => {
       )}
       <ModalShow
         show={show}
-        handleClose={() => handleClose()}
+        handleClose={(selectedEqs) => handleClose(selectedEqs)}
         onSubmit={(e) => {
           e.preventDefault();
           onSubmit(newVehicle);
@@ -149,7 +144,8 @@ export const Dashboard = () => {
         onChangeFuelType={(e) =>
           setNewVehicle({ ...newVehicle, fuelType: e.target.value })
         }
-        equipments={newVehicle.equipments}
+        equipments={getEquipmentsNames(equipments)}
+        defaultChecked={newVehicle.equipments}
         onChangeEquipments={(e) => {
           setNewVehicle({ ...newVehicle, equipments: e.target.value });
         }}
