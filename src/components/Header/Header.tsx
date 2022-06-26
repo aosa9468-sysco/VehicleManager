@@ -18,6 +18,7 @@ function Header(){
           <p className="fw-medium text-right ar mr-3">
             by VOLVO Global Digital
           </p>
+        {/* <p className="fw-medium text-right ar mr-3">Serch Bar</p> */}
         </div>
       </div>
       </div>

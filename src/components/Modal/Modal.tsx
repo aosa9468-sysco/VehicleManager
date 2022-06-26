@@ -37,6 +37,8 @@ function ModalShow(props: ModalProps) {
   };
 
   const checkDefaultEnabled = (equipments: any,index: number) => {
+    console.log(equipments);
+    console.log(index)
     return equipments.includes(index);
     
   }

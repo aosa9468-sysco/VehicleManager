@@ -3,7 +3,7 @@ import "./dashboard.styles.css";
 import {
   deleteVehicle,
   getVehicles,
-  updateVehicle,
+  updateVehicle
 } from "../../services/vehicle.srvice";
 import Card from "../../components/Cards/card";
 import { getEquipments } from "../../services/equipments.service";
@@ -11,6 +11,7 @@ import Header from "../../components/Header/Header";
 import ModalShow from "../../components/Modal/Modal";
 import { find } from "lodash";
 import { getCardEquipmentsName, getEquipmentsNames, setEquipmentsValues } from "../../util/util";
+import Pagination from "../../components/Pagination/Pagination";
 
 export const Dashboard = () => {
   const initVehicle = {
@@ -32,20 +33,29 @@ export const Dashboard = () => {
   const [editing, setEdit] = useState(false);
   const [selectedEquipments, setSelectedEquipments] = useState([])
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [vehiclesPerPage] = useState(3);
+
   useEffect(() => {
     loadVehicles();
     loadEquipments();
   }, [],[]);
 
-  const loadVehicles = () =>
+  const loadVehicles = () =>{
     getVehicles().then((vehicles) => setVehicles(vehicles.data));
+  }
 
   const loadEquipments = () =>
     getEquipments().then((equipments) => setEquipments(equipments.data));
 
+  const indexOfLastPost = currentPage * vehiclesPerPage;
+  const indexOfFirstPost = indexOfLastPost - vehiclesPerPage;
+  const currentVehicles = vehicles.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   const handleClose = (selectedEqs) => {
     setShow(false);
-    setSelectedEquipments(selectedEqs)
+    setSelectedEquipments(selectedEqs);
   };
 
   const handleShow = () => {
@@ -98,8 +108,9 @@ export const Dashboard = () => {
   return (
     <div className="container-fluid bg-holder">
       <Header />
-      {vehicles.length > 0 ? (
-        vehicles.map((vehicle, index) => (
+     
+      {currentVehicles.length > 0 ? (
+        currentVehicles.map((vehicle, index) => (
           <Card
             index={vehicle.id}
             image={vehicle.image}
@@ -121,6 +132,7 @@ export const Dashboard = () => {
           </td>
         </tr>
       )}
+
       <ModalShow
         show={show}
         handleClose={(selectedEqs) => handleClose(selectedEqs)}
@@ -150,6 +162,18 @@ export const Dashboard = () => {
           setNewVehicle({ ...newVehicle, equipments: e.target.value });
         }}
       />
+      <div class="fixed-bottom">
+
+      <div className="row">
+        <div className="col-md-12">
+          <Pagination
+        vehiclesPerPage={vehiclesPerPage}
+        totalVehicles={vehicles.length}
+        paginate={paginate}
+        />
+        </div>
+        </div>
+      </div>
     </div>
   );
 };
