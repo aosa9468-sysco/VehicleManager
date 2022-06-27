@@ -1,10 +1,10 @@
-import './Header.Styles.css'
+import "./Header.Styles.css";
 import logo from "../../fixtures/logo.svg";
 
-function Header(){
-    return(
-        <div>
-        <div className="row">
+function Header() {
+  return (
+    <div>
+      <div className="row">
         <div className="col-md-4 pt-3">
           <img src={logo} className="logo" alt="" />
         </div>
@@ -20,8 +20,8 @@ function Header(){
           </p>
         </div>
       </div>
-      </div>
-    )
+    </div>
+  );
 }
 
 export default Header;

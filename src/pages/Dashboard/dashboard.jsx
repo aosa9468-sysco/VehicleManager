@@ -3,13 +3,17 @@ import "./dashboard.styles.css";
 import {
   deleteVehicle,
   getVehicles,
-  updateVehicle
+  updateVehicle,
 } from "../../services/vehicle.srvice";
 import Card from "../../components/Card/Card";
 import { getEquipments } from "../../services/equipments.service";
 import Header from "../../components/Header/Header";
 import ModalShow from "../../components/Modal/Modal";
-import { getCardEquipmentsName, getEquipmentsNames, setEquipmentsValues } from "../../util/util";
+import {
+  getCardEquipmentsName,
+  getEquipmentsNames,
+  setEquipmentsValues,
+} from "../../util/util";
 import Pagination from "../../components/Pagination/Pagination";
 
 export const Dashboard = () => {
@@ -30,19 +34,23 @@ export const Dashboard = () => {
   const [show, setShow] = useState(false);
   const [newVehicle, setNewVehicle] = useState(initVehicle);
   const [editing, setEdit] = useState(false);
-  const [selectedEquipments, setSelectedEquipments] = useState([])
+  const [selectedEquipments, setSelectedEquipments] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [vehiclesPerPage] = useState(3);
 
-  useEffect(() => {
-    loadVehicles();
-    loadEquipments();
-  }, [],[]);
+  useEffect(
+    () => {
+      loadVehicles();
+      loadEquipments();
+    },
+    [],
+    []
+  );
 
-  const loadVehicles = () =>{
+  const loadVehicles = () => {
     getVehicles().then((vehicles) => setVehicles(vehicles.data));
-  }
+  };
 
   const loadEquipments = () =>
     getEquipments().then((equipments) => setEquipments(equipments.data));
@@ -50,7 +58,7 @@ export const Dashboard = () => {
   const indexOfLastPost = currentPage * vehiclesPerPage;
   const indexOfFirstPost = indexOfLastPost - vehiclesPerPage;
   const currentVehicles = vehicles.slice(indexOfFirstPost, indexOfLastPost);
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleClose = (selectedEqs) => {
     setShow(false);
@@ -70,7 +78,10 @@ export const Dashboard = () => {
         vehicle.id == newVehicle.id ? newVehicle : vehicle
       )
     );
-    clonedVehicle.equipments = setEquipmentsValues(selectedEquipments,equipments);
+    clonedVehicle.equipments = setEquipmentsValues(
+      selectedEquipments,
+      equipments
+    );
     clonedVehicle.equipments = [...new Set(clonedVehicle.equipments)];
     updateVehicle(clonedVehicle.id, clonedVehicle);
   };
@@ -105,7 +116,7 @@ export const Dashboard = () => {
   return (
     <div className="container-fluid bg-holder">
       <Header />
-     
+
       {currentVehicles.length > 0 ? (
         currentVehicles.map((vehicle, index) => (
           <Card
@@ -114,7 +125,13 @@ export const Dashboard = () => {
             license={vehicle.licensePlate}
             vehicleName={vehicle.name}
             status={vehicle.status}
-            equipments={vehicle.equipments.length> 0? getCardEquipmentsName(vehicle.equipments,equipments).join(","):[]}
+            equipments={
+              vehicle.equipments.length > 0
+                ? getCardEquipmentsName(vehicle.equipments, equipments).join(
+                    ","
+                  )
+                : []
+            }
             fuelType={vehicle.fuelType}
             model={vehicle.model}
             driver={vehicle.driver}
@@ -160,15 +177,14 @@ export const Dashboard = () => {
         }}
       />
       <div class="fixed-bottom">
-
-      <div className="row">
-        <div className="col-md-12">
-          <Pagination
-        vehiclesPerPage={vehiclesPerPage}
-        totalVehicles={vehicles.length}
-        paginate={paginate}
-        />
-        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <Pagination
+              vehiclesPerPage={vehiclesPerPage}
+              totalVehicles={vehicles.length}
+              paginate={paginate}
+            />
+          </div>
         </div>
       </div>
     </div>

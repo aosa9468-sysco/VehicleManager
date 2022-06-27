@@ -1,42 +1,41 @@
 import { Button, Form, Modal } from "react-bootstrap";
-import { findEquipmentName, getEquipmentId} from "../../util/util";
+import { findEquipmentName, getEquipmentId } from "../../util/util";
 import { ModalProps } from "./Modal.Interface";
 
 function ModalShow(props: ModalProps) {
-  let selectedEqs: any[] =  props.defaultChecked;
+  let selectedEqs: any[] = props.defaultChecked;
 
   const handleInputChange = (event: any) => {
-    if(props.defaultChecked.length > 0){
+    if (props.defaultChecked.length > 0) {
       props.defaultChecked.map((eq: any) => {
-        let name = findEquipmentName(eq,props.equipments);
-        if(!selectedEqs.includes(name) && name !== undefined){
-          selectedEqs.push(findEquipmentName(eq,props.equipments))
-        } 
-      })
+        let name = findEquipmentName(eq, props.equipments);
+        if (!selectedEqs.includes(name) && name !== undefined) {
+          selectedEqs.push(findEquipmentName(eq, props.equipments));
+        }
+      });
     }
     const target = event.target;
     let value = target.value;
     if (target.checked) {
       selectedEqs.push(value);
     } else {
-      let eqName = getEquipmentId(value,props.equipments);
+      let eqName = getEquipmentId(value, props.equipments);
       let indexOfVal = selectedEqs.indexOf(value);
-      if(indexOfVal > -1){
+      if (indexOfVal > -1) {
         selectedEqs.splice(indexOfVal, 1);
       }
       let indexOfStr = selectedEqs.indexOf(eqName);
-      if(indexOfStr > -1){
+      if (indexOfStr > -1) {
         selectedEqs.splice(indexOfStr, 1);
       }
     }
   };
 
-  const checkDefaultEnabled = (equipments: any,index: number) => {
+  const checkDefaultEnabled = (equipments: any, index: number) => {
     console.log(equipments);
-    console.log(index)
+    console.log(index);
     return equipments.includes(index);
-    
-  }
+  };
 
   return (
     <Modal size="lg" show={props.show} onHide={props.handleClose}>
@@ -66,19 +65,29 @@ function ModalShow(props: ModalProps) {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicAge">
             <Form.Label>Status</Form.Label>
-            <Form.Select aria-label="Default select example" onChange={props.onChangeStatus} value={props.status}>
+            <Form.Select
+              aria-label="Default select example"
+              onChange={props.onChangeStatus}
+              value={props.status}
+            >
               <option value="active">active</option>
               <option value="inactive">inactive</option>
-          </Form.Select>
+            </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicProfession">
             <Form.Label>Fuel Type</Form.Label>
-            <Form.Select aria-label="Default select example" onChange={props.onChangeFuelType} value={props.fuelType}>
-              <option value="LNG" selected={true}>LNG</option>
+            <Form.Select
+              aria-label="Default select example"
+              onChange={props.onChangeFuelType}
+              value={props.fuelType}
+            >
+              <option value="LNG" selected={true}>
+                LNG
+              </option>
               <option value="Diesel">Diesel</option>
               <option value="CNG">CNG</option>
               <option value="Electrical">Electrical</option>
-          </Form.Select>
+            </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicProfession">
             <Form.Label>Equipments</Form.Label>
@@ -90,7 +99,10 @@ function ModalShow(props: ModalProps) {
                   name="group1"
                   type="checkbox"
                   value={equipment}
-                  defaultChecked={checkDefaultEnabled(props.defaultChecked,index+1)}
+                  defaultChecked={checkDefaultEnabled(
+                    props.defaultChecked,
+                    index + 1
+                  )}
                   onChange={(event) => handleInputChange(event)}
                 />
               </div>
@@ -98,7 +110,11 @@ function ModalShow(props: ModalProps) {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" type="submit" onClick={() => props.handleClose(props.defaultChecked)}>
+          <Button
+            variant="primary"
+            type="submit"
+            onClick={() => props.handleClose(props.defaultChecked)}
+          >
             Update
           </Button>
         </Modal.Footer>
@@ -108,4 +124,3 @@ function ModalShow(props: ModalProps) {
 }
 
 export default ModalShow;
-
