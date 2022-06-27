@@ -15,6 +15,9 @@ Please follow below steps in order to run fleet project successfully
 4. Run the project: `yarn start` (In new terminal)
 5. Open `http://localhost:3000` to view your React application in the browser
 
+# Run tests
+Run test: `yarn test`
+
 
 # List of Assumptions
 
