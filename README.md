@@ -9,9 +9,9 @@ To build the UI of this project I have used bootstrap, react library, CSS and fo
 Please follow below steps in order to run fleet project successfully
 
 
-1. Install json server on your computer: `npm install -g json-server`
-2. Install the dependencies on your computer: `npm install`
-3. Run Json server: `npm run server`
+1. Install json server on your computer: `yarn global add json-server`
+2. Install the dependencies on your computer: `yarn`
+3. Run Json server: `yarn server`
 4. Run the project: `yarn start` (In new terminal)
 5. Open `http://localhost:3000` to view your React application in the browser
 
