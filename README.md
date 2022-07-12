@@ -5,9 +5,11 @@ In this react project I have used React, typescript, CSS, bootstrap and json ser
 # Importing Packages
 To build the UI of this project I have used bootstrap, react library, CSS and font awesome libraries.
 
+![Alt text](src/fixtures/HomePage.png?raw=true "Home Page")
+![Alt text](src/fixtures/EditVehicle.png?raw=true "Edit Vehicle")
+
 # Instruction to run project
 Please follow below steps in order to run fleet project successfully
-
 
 1. Install json server on your computer: `yarn global add json-server`
 2. Install the dependencies on your computer: `yarn`
